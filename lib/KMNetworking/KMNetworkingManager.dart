@@ -4,8 +4,8 @@ import 'KMNetworkingResultError.dart';
 import 'KMNetworkingResultList.dart';
 import 'KMNetworkingResultMap.dart';
 
-final int CONNECT_TIMEOUT = 60 * 1000;
-final int RECEIVE_TIMEOUT = 60 * 1000;
+final int CONNECT_TIMEOUT = 30 * 1000;
+final int RECEIVE_TIMEOUT = 30 * 1000;
 
 class KMNetworkingManager {
   /// KMNetWorking 单例类
