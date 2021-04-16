@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:dio/dio.dart';
 import 'package:myapp/KMNetworking/KMNetworkingMethod.dart';
-import 'res/Model.dart';
 import 'KMNetworking/KMNetworkingManager.dart';
 
 class IndexPage extends StatefulWidget {
@@ -26,15 +25,10 @@ class _IndexPageState extends State<IndexPage> {
             FlatButton(
               child: Text('gogogo'),
               onPressed: () {
-                // Navigator.pushNamed(context, '/goodsListPage',
-                //     arguments: {'id': '123'});
-                // Navigator.of(context).push(
-                //   MaterialPageRoute(
-                //     builder: (context) => GoodsListPage(),
-                //   ),
-                // );
+                Navigator.pushNamed(context, '/goodsListPage',
+                    arguments: {'id': '123'});
 
-                getHttp();
+                // getHttp();
               },
             )
           ],
@@ -54,9 +48,11 @@ errorReuslt(error) {}
 
 void getHttp() async {
   var param = {"group": "2", "role": "1", "state": "1", "type": "0"};
-  var header = {};
-  KMNetworkingManager().requestList(KMNetworkingMethod.GET, url,
-      parameters: null, header: null, success: (data) {
+  // var header = {};
+  CancelToken token = CancelToken();
+  // KMNetworkingManager().cancel(token);
+  KMNetworkingManager().request(KMNetworkingMethod.GET, url,
+      parameters: param, cancelToken: token, success: (data) {
     print("Success:$data");
   }, error: (error) {
     print(error);

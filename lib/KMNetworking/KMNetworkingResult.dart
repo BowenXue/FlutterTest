@@ -1,14 +1,14 @@
 import 'KMNetworkingResultT.dart';
 
-class KMNetworkingResultMap<T> {
+class KMNetworkingResult<T> {
   int code;
   String message;
   T data;
 
-  KMNetworkingResultMap({this.code, this.message, this.data});
+  KMNetworkingResult({this.code, this.message, this.data});
 
-  factory KMNetworkingResultMap.fromjson(json) {
-    return KMNetworkingResultMap(
+  factory KMNetworkingResult.fromjson(json) {
+    return KMNetworkingResult(
       code: json["code"],
       message: json["message"],
       data: KMNetworkingResultT.generateObject(json["data"]),
